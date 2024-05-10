@@ -20,7 +20,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/auth" element={<AuthPage />} />
-              <Route path="/Posts" element={<PostsPage />} />
+              <Route path="/Posts" element={<PostsPage currentUser={user} />} />
               <Route path="/Profile" element={<ProfilePage />} />
               {/* Catch all */}
               <Route path="/*" element={<Navigate to="/" />} />

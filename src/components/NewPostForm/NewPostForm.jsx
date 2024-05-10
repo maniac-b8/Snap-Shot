@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function NewPostForm({ onSubmit }) {
   const [imageFile, setImageFile] = useState(null);
-  const [caption, setCaption] = useState('');
+  const [caption, setCaption] = useState("");
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -20,12 +20,13 @@ export default function NewPostForm({ onSubmit }) {
       onSubmit({ imageUrl, caption });
       // Clear form fields after successful post creation
       setImageFile(null);
-      setCaption('');
+      setCaption("");
     } catch (error) {
-      console.error('Error creating post:', error);
+      console.error("Error creating post:", error);
     }
   };
-
+  // this works for some photos however still overloads payload and need to
+  //switch to AWS S3 for better img hosting
   const uploadAndResizeImage = async (imageFile) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -36,13 +37,12 @@ export default function NewPostForm({ onSubmit }) {
         img.src = event.target.result;
 
         img.onload = () => {
-          const canvas = document.createElement('canvas');
-          const maxWidth = 400; // Set your desired max width
-          const maxHeight = 300; // Set your desired max height
+          const canvas = document.createElement("canvas");
+          const maxWidth = 500;
+          const maxHeight = 500;
           let width = img.width;
           let height = img.height;
 
-          // Calculate new dimensions while maintaining aspect ratio
           if (width > maxWidth) {
             height *= maxWidth / width;
             width = maxWidth;
@@ -52,18 +52,14 @@ export default function NewPostForm({ onSubmit }) {
             height = maxHeight;
           }
 
-          // Set canvas dimensions
           canvas.width = width;
           canvas.height = height;
 
-          // Draw image onto canvas with resized dimensions
-          const ctx = canvas.getContext('2d');
+          const ctx = canvas.getContext("2d");
           ctx.drawImage(img, 0, 0, width, height);
 
-          // Convert canvas content back to a data URL
-          const resizedImageUrl = canvas.toDataURL('image/jpeg');
+          const resizedImageUrl = canvas.toDataURL("image/jpeg");
 
-          // Resolve with the resized image URL
           resolve(resizedImageUrl);
         };
 
