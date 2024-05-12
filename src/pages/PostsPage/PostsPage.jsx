@@ -1,59 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { getPosts, createPost, deletePost } from "../../utilities/posts-service";
-import NewPostForm from "../../components/NewPostForm/NewPostForm";
+import { useState, useRef, useEffect } from 'react';
+import * as photosAPI from '../../utilities/posts-service';
+import PhotoCard from '../../components/PhotoCard/PhotoCard';
 import './PostsPage.css';
 
-export default function PostsPage({ currentUser }) {
-  const [posts, setPosts] = useState([]);
+export default function PostsPage() {
+  const [title, setTitle] = useState('');
+  const [photos, setPhotos] = useState([]);
 
-  useEffect(() => {
-    fetchPosts();
+  const fileInputRef = useRef();
+
+  useEffect(function() {
+    photosAPI.getAll().then(photos => setPhotos(photos));
   }, []);
 
-  const fetchPosts = async () => {
-    try {
-      const fetchedPosts = await getPosts();
-      setPosts(fetchedPosts);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  };
-
-  const handleSubmit = async ({ imageUrl, caption }) => {
-    try {
-      await createPost(imageUrl, caption);
-      fetchPosts();
-    } catch (error) {
-      console.error("Error creating post:", error);
-    }
-  };
-
-  const handleDelete = async (postId) => {
-    try {
-      await deletePost(postId);
-      fetchPosts();
-    } catch (error) {
-      console.error("Error deleting post:", error);
-    }
-  };
+  async function handleUpload() {
+  
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('photo', fileInputRef.current.files[0]);
+    const newPhoto = await photosAPI.upload(formData);
+    setPhotos([newPhoto, ...photos]);
+    setTitle('');
+    fileInputRef.current.value = '';
+  }
 
   return (
-    <div>
-      <h1>Posts</h1>
-      <NewPostForm onSubmit={handleSubmit} />
-
-      {posts.map((post) => (
-        <div key={post._id}>
-          <img src={post.imageUrl} alt="Post" />
-          <p>{post.caption}</p>
-          <p>Posted on: {new Date(post.createdAt).toLocaleString()}</p>
-          {currentUser && currentUser._id === post.createdBy && (
-            <button className="delete-button" onClick={() => handleDelete(post._id)}>
-              Delete Post
-            </button>
-          )}
-        </div>
-      ))}
-    </div>
+    <main className="App flex-ctr-ctr">
+      <section className="flex-ctr-ctr">
+        <input type="file" ref={fileInputRef} />
+        <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Photo Title" />
+        <button onClick={handleUpload}>Upload Photo</button>
+      </section>
+      <section>
+        {photos.map(p => <PhotoCard photo={p} key={p._id} />)}
+      </section>
+    </main>
   );
 }

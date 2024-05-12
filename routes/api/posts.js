@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const upload = require("multer")();
 const postsCtrl = require('../../controllers/api/posts');
-const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-//All paths start with "/api/posts"
+// All routes start with ("/api/posts")
 
-router.get('/', postsCtrl.getPosts);
-router.post('/', ensureLoggedIn, postsCtrl.createPost);
-router.delete('/:postId', ensureLoggedIn, postsCtrl.deletePost);
+// GET /api/posts
+router.get('/', postsCtrl.index);
+// POST /api/posts/upload
+router.post('/upload', upload.single('photo'), postsCtrl.upload);
+
 
 module.exports = router;
