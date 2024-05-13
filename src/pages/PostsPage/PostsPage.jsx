@@ -36,6 +36,15 @@ export default function PostsPage() {
   const handleDelete = (postId) => {
     setPhotos(photos.filter(photo => photo._id !== postId));
   }
+
+  const updatePhotoWithComment = (comment, photoId) => {
+    setPhotos(prevPhotos => 
+      prevPhotos.map(photo => 
+        photo._id === photoId ? { ...photo, comments: [...photo.comments, comment] } : photo
+      )
+    );
+  };
+
   return (
     <main className="App flex-ctr-ctr">
       <section className="flex-ctr-ctr">
@@ -44,12 +53,13 @@ export default function PostsPage() {
         <button onClick={handleUpload}>Upload Photo</button>
       </section>
       <section>
-      {photos.map(photo => (
+        {photos.map(photo => (
           <PhotoCard
-          key={photo._id}
-          photo={photo}
-          onDelete={handleDelete}
-        />
+            key={photo._id}
+            photo={photo}
+            onDelete={handleDelete}
+            updatePhotoWithComment={updatePhotoWithComment} 
+          />
         ))}
       </section>
     </main>

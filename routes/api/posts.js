@@ -16,4 +16,5 @@ router.delete('/:id', ensureLoggedIn, postsCtrl.remove);
 router.get('/:id', postsCtrl.getPhoto);
 
 
+
 module.exports = router;

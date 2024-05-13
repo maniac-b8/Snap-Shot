@@ -5,8 +5,9 @@ module.exports = {
   index,
   upload,
   remove,
-  getPhoto
+  getPhoto,
 };
+
 
 async function getPhoto(req, res) {
   try {
