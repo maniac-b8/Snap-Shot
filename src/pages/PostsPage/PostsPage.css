@@ -1,4 +1,4 @@
-.delete-button {
+button.delete {
     background-color: #ff0000; 
     color: #ffffff; 
     padding: 8px 16px; 
@@ -7,6 +7,6 @@
     cursor: pointer; 
   }
 
-  .delete-button:hover {
+  button.delete:hover {
     background-color: #cc0000; 
   }

@@ -10,20 +10,32 @@ export default function PostsPage() {
   const fileInputRef = useRef();
 
   useEffect(function() {
-    photosAPI.getAll().then(photos => setPhotos(photos));
+    photosAPI.getAll().then(photos => {
+      setPhotos(photos);
+    });
   }, []);
 
   async function handleUpload() {
+    try {
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('photo', fileInputRef.current.files[0]);
+      
+      const newPhoto = await photosAPI.upload(formData);
   
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('photo', fileInputRef.current.files[0]);
-    const newPhoto = await photosAPI.upload(formData);
-    setPhotos([newPhoto, ...photos]);
-    setTitle('');
-    fileInputRef.current.value = '';
+      const updatedPhoto = await photosAPI.getPhoto(newPhoto._id);
+  
+      setPhotos([updatedPhoto, ...photos]);
+      setTitle('');
+      fileInputRef.current.value = '';
+    } catch (error) {
+      console.error('Error uploading photo:', error);
+    }
   }
 
+  const handleDelete = (postId) => {
+    setPhotos(photos.filter(photo => photo._id !== postId));
+  }
   return (
     <main className="App flex-ctr-ctr">
       <section className="flex-ctr-ctr">
@@ -32,7 +44,13 @@ export default function PostsPage() {
         <button onClick={handleUpload}>Upload Photo</button>
       </section>
       <section>
-        {photos.map(p => <PhotoCard photo={p} key={p._id} />)}
+      {photos.map(photo => (
+          <PhotoCard
+          key={photo._id}
+          photo={photo}
+          onDelete={handleDelete}
+        />
+        ))}
       </section>
     </main>
   );
