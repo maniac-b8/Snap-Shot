@@ -14,6 +14,8 @@ router.post('/upload', ensureLoggedIn, upload.single('post'), postsCtrl.upload);
 router.delete('/:id', ensureLoggedIn, postsCtrl.remove);
 // GET /api/posts/postId
 router.get('/:id', postsCtrl.getPost);
+// GET /api/posts/user/:userId
+router.get('/user/:userId', postsCtrl.getUserPosts);
 
 
 

@@ -6,7 +6,18 @@ module.exports = {
   upload,
   remove,
   getPost,
+  getUserPosts
 };
+
+async function getUserPosts(req, res) {
+  try {
+    const posts = await Post.find({ createdBy: req.params.userId }).populate('createdBy').exec();
+    res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
 
 async function getPost(req, res) {
   try {
