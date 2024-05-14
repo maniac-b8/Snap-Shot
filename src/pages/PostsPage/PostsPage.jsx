@@ -1,59 +1,59 @@
 import { useState, useRef, useEffect } from 'react';
-import * as photosAPI from '../../utilities/posts-service';
-import PhotoCard from '../../components/PhotoCard/PhotoCard';
+import * as postsAPI from '../../utilities/posts-service';
+import PhotoCard from '../../components/PostCard/PostCard';
 import './PostsPage.css';
 
 export default function PostsPage() {
   const [title, setTitle] = useState('');
-  const [photos, setPhotos] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const fileInputRef = useRef();
 
   useEffect(function() {
-    photosAPI.getAll().then(photos => {
-      setPhotos(photos);
+    postsAPI.getAll().then(posts => {
+      setPosts(posts);
     });
   }, []);
 
   function handleAddComment(updatedPost) {
-    const posts = photos.map(p => p._id === updatedPost._id ? updatedPost : p);
-    setPhotos(posts); 
+    const updatedPosts = posts.map(p => p._id === updatedPost._id ? updatedPost : p);
+    setPosts(updatedPosts); 
   }
 
   async function handleUpload() {
     try {
       const formData = new FormData();
       formData.append('title', title);
-      formData.append('photo', fileInputRef.current.files[0]);
+      formData.append('post', fileInputRef.current.files[0]);
       
-      const newPhoto = await photosAPI.upload(formData);
+      const newPost = await postsAPI.upload(formData);
   
-      const updatedPhoto = await photosAPI.getPhoto(newPhoto._id);
+      const updatedPost = await postsAPI.getPost(newPost._id);
   
-      setPhotos([updatedPhoto, ...photos]);
+      setPosts([updatedPost, ...posts]);
       setTitle('');
       fileInputRef.current.value = '';
     } catch (error) {
-      console.error('Error uploading photo:', error);
+      console.error('Error uploading post:', error);
     }
   }
 
   const handleDelete = (postId) => {
-    setPhotos(photos.filter(photo => photo._id !== postId));
+    setPosts(posts.filter(post => post._id !== postId));
   }
 
   return (
     <main className="App flex-ctr-ctr">
       <section className="flex-ctr-ctr">
         <input type="file" ref={fileInputRef} />
-        <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Photo Title" />
-        <button onClick={handleUpload}>Upload Photo</button>
+        <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Post Title" />
+        <button onClick={handleUpload}>Upload Post</button>
       </section>
       <section>
-        {photos.map(photo => (
+        {posts.map(post => (
           <PhotoCard
-            key={photo._id}
-            photo={photo}
+            key={post._id}
+            post={post}
             onDelete={handleDelete}
             handleAddComment={handleAddComment} 
           />

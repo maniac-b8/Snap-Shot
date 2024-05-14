@@ -14,6 +14,6 @@ export function deletePost(postId) {
   return sendRequest(`${BASE_URL}/${postId}`, 'DELETE');
 }
 
-export function getPhoto(photoId) {
-  return sendRequest(`${BASE_URL}/${photoId}`);
+export function getPost(postId) {
+  return sendRequest(`${BASE_URL}/${postId}`);
 }

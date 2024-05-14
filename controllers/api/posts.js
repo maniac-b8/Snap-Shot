@@ -5,17 +5,16 @@ module.exports = {
   index,
   upload,
   remove,
-  getPhoto,
+  getPost,
 };
 
-
-async function getPhoto(req, res) {
+async function getPost(req, res) {
   try {
-    const photo = await Post.findById(req.params.id).populate('createdBy');
-    if (!photo) {
-      return res.status(404).json({ error: 'Photo not found' });
+    const post = await Post.findById(req.params.id).populate('createdBy');
+    if (!post) {
+      return res.status(404).json({ error: 'Post not found' });
     }
-    res.json(photo);
+    res.json(post);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
@@ -23,22 +22,22 @@ async function getPhoto(req, res) {
 }
 
 async function index(req, res) {
-  const photos = await Post.find({}).populate('createdBy').sort('-createdAt').exec();
-  res.json(photos);
+  const posts = await Post.find({}).populate('createdBy').sort('-createdAt').exec();
+  res.json(posts);
 }
 
 async function upload(req, res) {
   try {
     if (req.file) {
       const photoURL = await uploadFile(req.file);
-      const photoDoc = await Post.create({
+      const postDoc = await Post.create({
         url: photoURL,
         title: req.body.title,
         createdBy: req.user._id
       });
-      await photoDoc.populate('createdBy');
+      await postDoc.populate('createdBy');
 
-      res.json(photoDoc);
+      res.json(postDoc);
     } else {
       throw new Error('Must select a file');
     }

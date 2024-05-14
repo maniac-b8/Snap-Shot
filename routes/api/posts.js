@@ -9,11 +9,11 @@ const ensureLoggedIn = require ('../../config/ensureLoggedIn')
 // GET /api/posts
 router.get('/', postsCtrl.index);
 // POST /api/posts/upload
-router.post('/upload', ensureLoggedIn, upload.single('photo'), postsCtrl.upload);
+router.post('/upload', ensureLoggedIn, upload.single('post'), postsCtrl.upload);
 // DELETE /api/posts/postId
 router.delete('/:id', ensureLoggedIn, postsCtrl.remove);
 // GET /api/posts/postId
-router.get('/:id', postsCtrl.getPhoto);
+router.get('/:id', postsCtrl.getPost);
 
 
 
