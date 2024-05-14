@@ -7,28 +7,35 @@ import PostsPage from '../PostsPage/PostsPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../Home/HomePage';
+import CarsPage from '../CarsPage/CarsPage';
+import NaturePage from '../NaturePage/NaturePage'
+import GamingPage from '../GamingPage/GamingPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
 
-  return (
+    return (
     <main className="App">
-      { user ?
+      <NavBar user={user} setUser={setUser} />
+      <Routes>
+        {/* Allow visitors these pages */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<AuthPage setUser={setUser} />} />
+
+        {/* Protected routes for logged in users */}
+        {user && (
           <>
-            <NavBar user={user} setUser={setUser} />
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/" element={<HomePage />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/Posts" element={<PostsPage currentUser={user} />} />
-              <Route path="/Profile" element={<ProfilePage />} />
-              {/* Catch all */}
-              <Route path="/*" element={<Navigate to="/" />} />
-            </Routes>
+            <Route path="/posts" element={<PostsPage currentUser={user} />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/cars" element={<CarsPage />} />
+            <Route path="/nature" element={<NaturePage />} />
+            <Route path="/gaming" element={<GamingPage />} />
           </>
-          :
-          <AuthPage setUser={setUser} />
-      }
+        )}
+
+        {/* Catch all*/}
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
     </main>
   );
 }

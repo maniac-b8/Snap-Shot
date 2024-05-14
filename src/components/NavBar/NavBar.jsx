@@ -9,14 +9,32 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/Posts">Posts</Link>
-      &nbsp; | &nbsp;
-      <Link to="/Profile">Profile</Link>
-      &nbsp; | &nbsp;
-      <Link to="/">Home</Link>
-      &nbsp;&nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+      {!user && (
+        <>
+          <Link to="/auth">Log In</Link>
+          &nbsp; | &nbsp;
+          <Link to="/">Home</Link>
+        </>
+      )}
+      
+      {user && (
+        <>
+          <Link to="/posts">Posts</Link>
+          &nbsp; | &nbsp;
+          <Link to="/profile">Profile</Link>
+          &nbsp; | &nbsp;
+          <Link to="/cars">Cars</Link>
+          &nbsp; | &nbsp;
+          <Link to="/nature">Nature</Link>
+          &nbsp; | &nbsp;
+          <Link to="/gaming">Gaming</Link>
+          &nbsp; | &nbsp;
+          <span>Welcome, {user.name}</span>
+          &nbsp;&nbsp;
+          <Link to="" onClick={handleLogOut}>Log Out</Link>
+          &nbsp; &nbsp;
+        </>
+      )}
     </nav>
   );
 }

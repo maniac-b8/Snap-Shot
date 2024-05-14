@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import * as postsAPI from '../../utilities/posts-service';
-import PhotoCard from '../../components/PostCard/PostCard';
+import PostCard from '../../components/PostCard/PostCard';
 import './PostsPage.css';
 
 export default function PostsPage() {
@@ -58,7 +58,7 @@ export default function PostsPage() {
       </section>
       <section>
         {posts.map(post => (
-          <PhotoCard
+          <PostCard
             key={post._id}
             post={post}
             onDelete={handleDelete}
