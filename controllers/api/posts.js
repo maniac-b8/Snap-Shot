@@ -36,6 +36,7 @@ async function upload(req, res) {
         title: req.body.title,
         createdBy: req.user._id
       });
+      await photoDoc.populate('createdBy');
 
       res.json(photoDoc);
     } else {

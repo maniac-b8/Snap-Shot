@@ -15,6 +15,11 @@ export default function PostsPage() {
     });
   }, []);
 
+  function handleAddComment(updatedPost) {
+    const posts = photos.map(p => p._id === updatedPost._id ? updatedPost : p);
+    setPhotos(posts); 
+  }
+
   async function handleUpload() {
     try {
       const formData = new FormData();
@@ -37,14 +42,6 @@ export default function PostsPage() {
     setPhotos(photos.filter(photo => photo._id !== postId));
   }
 
-  const updatePhotoWithComment = (comment, photoId) => {
-    setPhotos(prevPhotos => 
-      prevPhotos.map(photo => 
-        photo._id === photoId ? { ...photo, comments: [...photo.comments, comment] } : photo
-      )
-    );
-  };
-
   return (
     <main className="App flex-ctr-ctr">
       <section className="flex-ctr-ctr">
@@ -58,7 +55,7 @@ export default function PostsPage() {
             key={photo._id}
             photo={photo}
             onDelete={handleDelete}
-            updatePhotoWithComment={updatePhotoWithComment} 
+            handleAddComment={handleAddComment} 
           />
         ))}
       </section>

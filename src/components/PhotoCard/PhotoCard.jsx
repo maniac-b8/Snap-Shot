@@ -4,15 +4,15 @@ import { getUser } from '../../utilities/users-service';
 import { useState } from 'react';
 import * as commentsAPI from '../../utilities/comments-service';
 
-export default function PhotoCard({ photo, onDelete, updatePhotoWithComment }) {
+export default function PhotoCard({ photo, onDelete, handleAddComment }) {
   const currentUser = getUser();
   const [commentContent, setCommentContent] = useState('');
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
-      const newComment = await commentsAPI.addComment(photo._id, { content: commentContent });
-      updatePhotoWithComment(newComment, photo._id);
+      const updatedPost = await commentsAPI.addComment(photo._id, { content: commentContent });
+      handleAddComment(updatedPost);
    
       setCommentContent('');
     } catch (error) {
@@ -40,7 +40,7 @@ export default function PhotoCard({ photo, onDelete, updatePhotoWithComment }) {
     <div className="comments-section">
     {photo.comments.map((comment) => (
   <div key={comment._id} className="comment">
-    {comment.createdBy.name}: {comment.content}
+    {comment.username}: {comment.content}
   </div>
 ))}
       </div>
