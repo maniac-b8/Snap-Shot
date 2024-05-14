@@ -33,6 +33,7 @@ async function upload(req, res) {
       const postDoc = await Post.create({
         url: photoURL,
         title: req.body.title,
+        category: req.body.category,
         createdBy: req.user._id
       });
       await postDoc.populate('createdBy');

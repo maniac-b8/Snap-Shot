@@ -6,6 +6,7 @@ import './PostsPage.css';
 export default function PostsPage() {
   const [title, setTitle] = useState('');
   const [posts, setPosts] = useState([]);
+  const [category, setCategory] = useState('Cars & Trucks');
 
   const fileInputRef = useRef();
 
@@ -25,6 +26,7 @@ export default function PostsPage() {
       const formData = new FormData();
       formData.append('title', title);
       formData.append('post', fileInputRef.current.files[0]);
+      formData.append('category', category);
       
       const newPost = await postsAPI.upload(formData);
   
@@ -47,6 +49,11 @@ export default function PostsPage() {
       <section className="flex-ctr-ctr">
         <input type="file" ref={fileInputRef} />
         <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Post Title" />
+        <select value={category} onChange={(evt) => setCategory(evt.target.value)}>
+          <option value="Cars & Trucks">Cars & Trucks</option>
+          <option value="Nature">Nature</option>
+          <option value="Gaming">Gaming</option>
+        </select>
         <button onClick={handleUpload}>Upload Post</button>
       </section>
       <section>

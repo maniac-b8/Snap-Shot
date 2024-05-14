@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-  content: { type: String, required: true },
+  content: {
+    type: String, 
+    required: true
+  },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -14,14 +17,22 @@ const commentSchema = new Schema({
 });
 
 const postSchema = new Schema({
-  url: { type: String, required: true },
+  url: {
+    type: String,
+    required: true
+  },
   title: String,
+  category: {
+    type: String,
+    enum: ['Cars & Trucks', 'Nature', 'Gaming'],
+    required: true
+   },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
-  comments: [commentSchema] // Embedding comments schema
+  comments: [commentSchema] 
 }, {
   timestamps: true,
 });

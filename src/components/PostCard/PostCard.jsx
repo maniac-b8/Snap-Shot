@@ -33,6 +33,7 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
     <article className="PostCard">
       <img src={post.url} alt={post.title} />
       <div>{post.title}</div>
+      <div>Category: {post.category}</div>
       <div>Created By: {post.createdBy.name}</div>
       {currentUser && currentUser._id === post.createdBy._id && (
         <button className='delete' onClick={handleDelete}>Delete</button>
