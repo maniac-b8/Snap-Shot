@@ -26,7 +26,7 @@ export default function App() {
         {user && (
           <>
             <Route path="/posts" element={<PostsPage currentUser={user} />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile" element={<ProfilePage currentUser={user} />} />
             <Route path="/cars" element={<CarsPage />} />
             <Route path="/nature" element={<NaturePage />} />
             <Route path="/gaming" element={<GamingPage />} />

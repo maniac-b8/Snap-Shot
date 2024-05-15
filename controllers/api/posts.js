@@ -1,12 +1,16 @@
 const uploadFile = require('../../config/upload-file');
 const Post = require('../../models/post');
+const User = require('../../models/user')
 
 module.exports = {
   index,
   upload,
   remove,
   getPost,
-  getUserPosts
+  getUserPosts,
+  likePost,
+  unlikePost,
+  getPostLikes
 };
 
 async function getUserPosts(req, res) {
@@ -71,5 +75,66 @@ async function remove(req, res) {
     res.json(deletedPost);
   } catch (error) {
     res.status(500).json({ error: 'Could not delete post' });
+  }
+}
+
+async function likePost(req, res) {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    if (!post.likes.includes(req.user._id)) {
+      const user = await User.findById(req.user._id);
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+      post.likes.push(user);
+      await post.save();
+    }
+
+    res.json(post);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+async function unlikePost(req, res) {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    const index = post.likes.indexOf(req.user._id);
+    if (index > -1) {
+      post.likes.splice(index, 1);
+      await post.save();
+    }
+
+    res.json(post);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
+async function getPostLikes(req, res) {
+  try {
+    const post = await Post.findById(req.params.id).populate('likes');
+    if (!post) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    const likedUsers = post.likes.map(user => ({
+      _id: user._id,
+      name: user.name
+    }));
+
+    res.json(likedUsers);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 }

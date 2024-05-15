@@ -1,23 +1,24 @@
 .PostCard {
-    display: grid;
-    grid-template-columns: 20vw;
-    grid-template-rows: auto auto;
-  }
-  
-  .PostCard div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vmin;
-    color: white;
-    background-color: grey;
-    font-size: 3vmin;
-    padding-bottom: .5vmin;
-  }
-  
-  .PostCard img {
-    width: 100%;
-    border: .5vmin solid grey;
-    border-bottom: none;
-  }
+  display: grid;
+  grid-template-columns: 40vw;
+  grid-template-rows: auto auto;
+  justify-content: center;
+}
 
+.PostCard div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vmin;
+  color: white;
+  background-color: grey;
+  font-size: 3vmin;
+  padding-bottom: .5vmin;
+}
+
+.PostCard img {
+  width: 100%;
+  border: .5vmin solid grey;
+  border-bottom: none;
+  align-content: center;
+}

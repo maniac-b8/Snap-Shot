@@ -45,8 +45,8 @@ export default function PostsPage() {
   }
 
   return (
-    <main className="App flex-ctr-ctr">
-      <section className="flex-ctr-ctr">
+    <main>
+      <section>
         <input type="file" ref={fileInputRef} />
         <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Post Title" />
         <select value={category} onChange={(evt) => setCategory(evt.target.value)}>

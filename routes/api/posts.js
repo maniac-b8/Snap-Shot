@@ -16,6 +16,12 @@ router.delete('/:id', ensureLoggedIn, postsCtrl.remove);
 router.get('/:id', postsCtrl.getPost);
 // GET /api/posts/user/:userId
 router.get('/user/:userId', postsCtrl.getUserPosts);
+// POST /api/posts/:postId/like
+router.post('/:id/like', ensureLoggedIn, postsCtrl.likePost);
+// POST /api/posts/:postId/unlike
+router.post('/:id/unlike', ensureLoggedIn, postsCtrl.unlikePost);
+// GET /api/posts/:postId/likes
+router.get('/:id/likes', postsCtrl.getPostLikes);
 
 
 
