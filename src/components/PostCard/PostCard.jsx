@@ -8,7 +8,7 @@ import LikedUsersModal from '../LikedUsersModal/LikedUsersModal';
 export default function PostCard({ post, onDelete, handleAddComment }) {
   const currentUser = getUser();
   const [commentContent, setCommentContent] = useState('');
-  const [isLiked, setIsLiked] = useState(post.likes.includes(currentUser._id));
+  const [isLiked, setIsLiked] = useState(post.likes.includes(currentUser));
   const [likedUsers, setLikedUsers] = useState([]);
   const [likesCount, setLikesCount] = useState(post.likes.length);
   const [showModal, setShowModal] = useState(false);
