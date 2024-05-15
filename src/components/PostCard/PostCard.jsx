@@ -4,6 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import { useState, useEffect } from 'react';
 import * as commentsAPI from '../../utilities/comments-service';
 import LikedUsersModal from '../LikedUsersModal/LikedUsersModal'; 
+
 export default function PostCard({ post, onDelete, handleAddComment }) {
   const currentUser = getUser();
   const [commentContent, setCommentContent] = useState('');
@@ -78,18 +79,18 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
       console.error('Error fetching liked users:', error);
     }
   };
+
   const handleCloseModal = () => {
-    setShowModal(false); // Close the modal when the close button is clicked
+    setShowModal(false); 
   };
 
   return (
-    <article className="PostCard">
+    <article className="CustomPostCard">
       <img src={post.url} alt={post.title} />
-      <div>{post.title}</div>
-      <div>Category: {post.category}</div>
-      <div>Created By: {post.createdBy.name}</div>
-      <div>Likes: {likesCount}</div>
-      <button onClick={handleShowLikedUsers}>Show Liked Users</button>
+      <div className="post-title">{post.title}</div> 
+      <div className="post-category">Category: {post.category}</div>
+      <div className="post-created-by">Created By: {post.createdBy.name}</div> 
+      <button className="likes-button" onClick={handleShowLikedUsers}>Likes: {likesCount}</button>
       {isLiked ? (
         <button onClick={handleUnlike}>Unlike</button>
       ) : (
@@ -118,7 +119,6 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
           <button type="submit">Submit</button>
         </form>
       )}
-      
     </article>
   );
 }

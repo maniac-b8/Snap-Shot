@@ -1,11 +1,22 @@
-.PostCard {
+.CustomPostCard {
   display: grid;
   grid-template-columns: 40vw;
   grid-template-rows: auto auto;
   justify-content: center;
+ 
 }
 
-.PostCard div {
+.CustomPostCard img {
+  width: 100%;
+  border: .5vmin solid grey;
+  border-bottom: none;
+  align-content: center;
+}
+
+.CustomPostCard .post-title,
+.CustomPostCard .post-category,
+.CustomPostCard .post-created-by,
+.CustomPostCard .post-likes {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,9 +27,36 @@
   padding-bottom: .5vmin;
 }
 
-.PostCard img {
-  width: 100%;
-  border: .5vmin solid grey;
-  border-bottom: none;
-  align-content: center;
+.CustomPostCard .comments-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vmin;
+  color: white;
+  background-color: grey;
+  font-size: 3vmin;
+  padding-bottom: .5vmin;
+}
+
+.CustomPostCard .comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vmin;
+  color: white;
+
+  border-radius: 10vh;
+  font-size: 3vmin;
+  padding-bottom: .5vmin;
+}
+
+.CustomPostCard .likes-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
 }
