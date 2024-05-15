@@ -74,6 +74,7 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
     try {
       const likes = await postsAPI.getPostLikes(post._id);
       setLikedUsers(likes);
+      document.body.classList.add('no-scroll'); 
       setShowModal(true);
     } catch (error) {
       console.error('Error fetching liked users:', error);
@@ -81,8 +82,10 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
   };
 
   const handleCloseModal = () => {
-    setShowModal(false); 
+    setShowModal(false);
+    document.body.classList.remove('no-scroll'); 
   };
+
 
   return (
     <article className="CustomPostCard">
