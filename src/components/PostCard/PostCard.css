@@ -1,9 +1,13 @@
+/* body {
+  background-color: black;
+} */
+
 .CustomPostCard {
   display: grid;
   grid-template-columns: 40vw;
   grid-template-rows: auto auto;
   justify-content: center;
- 
+  margin: 20px;
 }
 
 .CustomPostCard img {
@@ -15,38 +19,29 @@
 
 .CustomPostCard .post-title,
 .CustomPostCard .post-category,
-.CustomPostCard .post-created-by,
+.CustomPostCard .post-created-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vmin;
+  color: white;
+  background-color: grey;
+  font-size: 3vmin;
+  padding-bottom: .5vmin;
+}
+
+.CustomPostCard .post-created-by {
+  display: flex;
+  justify-content:flex-start;
+}
+
 .CustomPostCard .post-likes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5vmin;
-  color: white;
   background-color: grey;
-  font-size: 3vmin;
-  padding-bottom: .5vmin;
-}
-
-.CustomPostCard .comments-section {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; 
   align-items: center;
+  gap: 1vmin;
   height: 5vmin;
-  color: white;
-  background-color: grey;
-  font-size: 3vmin;
-  padding-bottom: .5vmin;
-}
-
-.CustomPostCard .comment {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5vmin;
-  color: white;
-  border-radius: 10vh;
-  font-size: 3vmin;
-  padding-bottom: .5vmin;
 }
 
 .CustomPostCard .likes-button {
@@ -60,6 +55,25 @@
   font-size: inherit;
 }
 
+.CustomPostCard .like-unlike-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+
+.CustomPostCard .like-unlike-button img {
+  width: 4vmin; 
+  height: auto;
+}
+
 .no-scroll {
   overflow: hidden;
+}
+
+.comments-button img {
+  width: 40px; 
+  height: auto; 
+  cursor: pointer;
 }

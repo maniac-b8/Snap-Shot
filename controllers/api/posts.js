@@ -100,6 +100,7 @@ async function likePost(req, res) {
     res.status(500).json({ error: 'Internal server error' });
   }
 }
+
 async function unlikePost(req, res) {
   try {
     const post = await Post.findById(req.params.id);
