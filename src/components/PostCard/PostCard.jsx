@@ -94,7 +94,7 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
   return (
     <article className="CustomPostCard">
       <img src={post.url} alt={post.title} />
-      <div className="post-created-by">Created By: {post.createdBy.name}</div>
+      <div className="post-created-by">📸 By: {post.createdBy.name}</div>
       <div className="post-title">{post.title}</div>
       <div className="post-category">Category: {post.category}</div>
       <div className="post-likes">
