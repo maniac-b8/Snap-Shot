@@ -3,6 +3,7 @@ import * as postsAPI from '../../utilities/posts-service';
 import { Link } from 'react-router-dom';
 import PostCard from '../../components/PostCard/PostCard';
 import UploadPostModal from '../../components/UploadPostModal/UploadPostModal'; 
+import './PostsPage.css';
 
 export default function PostsPage() {
   const [posts, setPosts] = useState([]);
