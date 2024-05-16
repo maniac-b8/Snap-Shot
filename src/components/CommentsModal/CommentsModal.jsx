@@ -24,7 +24,7 @@ export default function CommentsModal({ comments, onClose, postId, handleAddComm
           {comments.map((comment, index) => (
             <li key={comment._id} className="comment-item">
               <strong>{comment.username}:</strong> {comment.content}
-              {index !== comments.length - 1 && <hr />} {/* Place <hr /> here */}
+              {index !== comments.length - 1 && <hr />}
             </li>
           ))}
         </ul>

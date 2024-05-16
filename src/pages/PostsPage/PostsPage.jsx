@@ -38,6 +38,7 @@ export default function PostsPage() {
   return (
     <main>
       <section>
+      <div className="posts-page">
         <h1>All Posts</h1>
         {posts.map(post => (
           <PostCard
@@ -47,6 +48,7 @@ export default function PostsPage() {
             handleAddComment={handleAddComment}
           />
         ))}
+        </div>
       </section>
       <BottomBar onUpload={setIsModalOpen} /> 
       {isModalOpen && (

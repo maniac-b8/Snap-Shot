@@ -1,0 +1,48 @@
+.nature-page {
+    background-image: url('../../assets/naturebg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    min-height: 100vh; 
+    padding: 20px; 
+  }
+  
+  .nature-page h1 {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  
+  .nature-page .post-title,
+  .nature-page .post-category,
+  .nature-page .post-created-by{
+    color: white;
+    background-color: rgb(24, 24, 24);
+    border-bottom: 2px solid;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+  }
+
+
+  .nature-page .post-likes {
+    text-align: center;
+    background-color: white;
+    background: linear-gradient(to bottom, white, black); 
+    padding-bottom: 5px;
+    border-bottom: 5px solid black; 
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+  }
+  
+  .upload-post-modal {
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+  }
+
+  .post-image {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border-color: black;
+  }

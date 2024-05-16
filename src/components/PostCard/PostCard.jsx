@@ -9,6 +9,7 @@ import CommentsModal from "../CommentsModal/CommentsModal";
 import likeIcon from "../../assets/notliked.png";
 import unlikeIcon from "../../assets/liked.png";
 import commentsIcon from "../../assets/comment.png";
+import deleteIcon from "../../assets/trash.png";
 
 export default function PostCard({ post, onDelete, handleAddComment }) {
   const currentUser = getUser();
@@ -93,32 +94,33 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
 
   return (
     <article className="CustomPostCard">
-      <img src={post.url} alt={post.title} />
+       <img src={post.url} alt={post.title} className={`post-image`} />
       <div className="post-created-by">📸 By: {post.createdBy.name}</div>
       <div className="post-title">{post.title}</div>
-      <div className="post-category">Category: {post.category}</div>
+      <div className="post-category">Category: {post.category}</div> 
       <div className="post-likes">
-        <button className="likes-button" onClick={handleShowLikedUsers}>
-          Likes: {likesCount}
-        </button>
-        {isLiked ? (
-          <button className="like-unlike-button" onClick={handleUnlike}>
-            <img src={unlikeIcon} alt="Unlike" />
+        <div className="like-container">
+          {isLiked ? (
+            <button className="like-unlike-button" onClick={handleUnlike}>
+              <img src={unlikeIcon} alt="Unlike" />
+            </button>
+          ) : (
+            <button className="like-unlike-button" onClick={handleLike}>
+              <img src={likeIcon} alt="Like" />
+            </button>
+          )}
+          <button className="likes-button" onClick={handleShowLikedUsers}>
+            {likesCount}
           </button>
-          
-        ) : (
-          <button className="like-unlike-button" onClick={handleLike}>
-            <img src={likeIcon} alt="Like" />
+        </div>
+        <button className="comments-button" onClick={handleShowComments}>
+          <img src={commentsIcon} alt="Comments" />
+        </button>
+        {currentUser && currentUser._id === post.createdBy._id && (
+          <button className="comments-button" onClick={handleDelete}>
+            <img src={deleteIcon} alt="Delete" />
           </button>
         )}
-        <button className="comments-button" onClick={handleShowComments}>
-        <img src={commentsIcon} alt="Comments" />
-      </button>
-      {currentUser && currentUser._id === post.createdBy._id && (
-        <button className="delete" onClick={handleDelete}>
-          Delete
-        </button>
-      )}
       </div>
       {showLikedUsersModal && (
         <LikedUsersModal

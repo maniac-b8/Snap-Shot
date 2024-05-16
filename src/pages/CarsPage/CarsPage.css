@@ -1,0 +1,53 @@
+.cars-page {
+    background-image: url('../../assets/carsbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    min-height: 100vh; 
+    padding: 20px; 
+  }
+  
+  .cars-page h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  
+  .cars-page .post-title,
+  .cars-page .post-category,
+  .cars-page .post-created-by{
+    color: white;
+    background-color: rgb(88, 88, 88);
+    border-bottom: 3px solid;
+    color: white;
+    text-align: center;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+    }
+  
+
+
+  .cars-page .post-likes {
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    background-color: white;
+    background-color: black; 
+    text-align: center;
+    background: linear-gradient(to bottom, white, black); 
+    border-bottom: 5px solid white; 
+    padding-bottom: 1px;
+  }
+  
+  .upload-post-modal {
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+  }
+
+  .cars-page .post-image {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-color: white;
+  }
+  

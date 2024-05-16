@@ -1,10 +1,26 @@
 .navbar {
+    background: linear-gradient(to right, rgba(51, 51, 51, 1) 0%, rgba(51, 51, 51, 0) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    color: white;
+    background-color: grey;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
   }
   
+  .nature-navbar {
+    background-color: rgb(83, 121, 83); 
+  }
+
+  .navbar.hidden {
+    top: -60px; 
+  }
+
   .navbar-links {
     display: flex;
     align-items: center;
@@ -18,17 +34,17 @@
   }
   
   .user-link {
-    color: inherit; /* Inherit color from parent */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Match the button text size */
+    color: inherit; 
+    text-decoration: underline; 
+    font-size: 16px; 
   }
   
   .user-link:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: none; 
   }
   
   .nav-button, .nav-buttonlogout {
-    background-color: #007BFF; /* Bootstrap Primary Blue */
+    background-color: #007BFF; 
     color: white;
     border: none;
     padding: 10px 20px;

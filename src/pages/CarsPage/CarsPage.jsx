@@ -3,6 +3,7 @@ import * as postsAPI from "../../utilities/posts-service";
 import PostCard from "../../components/PostCard/PostCard";
 import BottomBar from "../../components/BottomBar/BottomBar"; 
 import UploadPostModal from '../../components/UploadPostModal/UploadPostModal'; 
+import './CarsPage.css'; // Import the CSS file
 
 export default function CarsPage() {
   const [carsPosts, setCarsPosts] = useState([]);
@@ -28,26 +29,26 @@ export default function CarsPage() {
       console.error('Error uploading post:', error);
     }
   }
+
   const handleDelete = (postId) => {
     setCarsPosts(carsPosts.filter(post => post._id !== postId));
   }
 
-  
   function handleAddComment(updatedPost) {
     const updatedPosts = carsPosts.map(p => p._id === updatedPost._id ? updatedPost : p);
     setCarsPosts(updatedPosts);
   }
 
   return (
-    <div>
+    <div className="cars-page">
       <h1>Cars & Trucks</h1>
       {carsPosts.map((post) => (
-        <PostCard key={post._id} post={post}  onDelete={handleDelete} handleAddComment={handleAddComment} />
+        <PostCard key={post._id} post={post} onDelete={handleDelete} handleAddComment={handleAddComment} />
       ))}
 
-  <BottomBar onUpload={setIsModalOpen} /> 
+      <BottomBar onUpload={setIsModalOpen} /> 
       {isModalOpen && (
-        <UploadPostModal onUpload={handleUpload} onClose={() => setIsModalOpen(false)}/>
+        <UploadPostModal onUpload={handleUpload} onClose={() => setIsModalOpen(false)} />
       )}
     </div>
   );

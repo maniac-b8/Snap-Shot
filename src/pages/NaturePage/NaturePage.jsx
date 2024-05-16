@@ -3,6 +3,7 @@ import * as postsAPI from "../../utilities/posts-service";
 import PostCard from "../../components/PostCard/PostCard";
 import BottomBar from "../../components/BottomBar/BottomBar"; 
 import UploadPostModal from '../../components/UploadPostModal/UploadPostModal'; 
+import './NaturePage.css'
 
 export default function NaturePage() {
   const [naturePosts, setNaturePosts] = useState([]);
@@ -39,8 +40,8 @@ export default function NaturePage() {
   }
 
   return (
-    <div>
-      <h1>Nature</h1>
+    <div className = 'nature-page'>
+      <h1>Nature Posts</h1>
       {naturePosts.map((post) => (
         <PostCard key={post._id} post={post} onDelete={handleDelete}  handleAddComment={handleAddComment}/>
       ))}
