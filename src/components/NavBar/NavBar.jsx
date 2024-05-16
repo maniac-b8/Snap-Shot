@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import './NavBar.css'; // Import CSS for styling
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -8,32 +9,30 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
-      {!user && (
-        <>
-          <Link to="/auth">Log In</Link>
-          &nbsp; | &nbsp;
-          <Link to="/">Home</Link>
-        </>
-      )}
-      
+    <nav className="navbar">
+      <div className="navbar-links">
+        {!user && (
+          <>
+            <Link to="/auth">
+              <button className="nav-button">Log In</button>
+            </Link>
+            &nbsp; | &nbsp;
+            <Link to="/">
+              <button className="nav-button">Home</button>
+            </Link>
+          </>
+        )}
+      </div>
       {user && (
-        <>
-          <Link to="/posts">Posts</Link>
-          &nbsp; | &nbsp;
-          <Link to="/profile">Profile</Link>
-          &nbsp; | &nbsp;
-          <Link to="/cars">Cars</Link>
-          &nbsp; | &nbsp;
-          <Link to="/nature">Nature</Link>
-          &nbsp; | &nbsp;
-          <Link to="/gaming">Gaming</Link>
-          &nbsp; | &nbsp;
-          <span>Welcome, {user.name}</span>
+        <div className="navbar-user-info">
+          <span>Welcome, &nbsp; </span>
+          <Link to="/profile" className="user-link">
+            {user.name}
+          </Link>
           &nbsp;&nbsp;
-          <Link to="" onClick={handleLogOut}>Log Out</Link>
-          &nbsp; &nbsp;
-        </>
+          <button onClick={handleLogOut} className="nav-buttonlogout">Log Out</button>
+          &nbsp;&nbsp;
+        </div>
       )}
     </nav>
   );

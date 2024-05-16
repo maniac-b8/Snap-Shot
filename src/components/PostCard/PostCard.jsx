@@ -114,6 +114,11 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
         <button className="comments-button" onClick={handleShowComments}>
         <img src={commentsIcon} alt="Comments" />
       </button>
+      {currentUser && currentUser._id === post.createdBy._id && (
+        <button className="delete" onClick={handleDelete}>
+          Delete
+        </button>
+      )}
       </div>
       {showLikedUsersModal && (
         <LikedUsersModal
@@ -121,12 +126,6 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
           onClose={handleCloseLikedUsersModal}
         />
       )}
-      {currentUser && currentUser._id === post.createdBy._id && (
-        <button className="delete" onClick={handleDelete}>
-          Delete
-        </button>
-      )}
-      
       {showCommentsModal && (
         <CommentsModal
           comments={post.comments}
