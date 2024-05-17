@@ -1,4 +1,4 @@
-.custom-modal {
+.liked-users-modal {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -11,36 +11,37 @@
   height: 75%;
   background-color: rgba(0, 0, 0, 0.95);
   border-radius: 5%;
+  border: 3px solid white;
 }
 
-.modal-content {
+.liked-users-modal-content {
   color: white;
   padding: 20px;
   border-radius: 5px;
-  width: calc(75% - 40px); /* Adjust to match the width of the custom modal */
-  height: calc(75% - 40px); /* Adjust to match the height of the custom modal */
+  width: calc(75% - 40px); 
+  height: calc(75% - 40px); 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: auto; /* Add this to handle overflow if content is too large */
+  overflow: auto; 
 }
 
-.modal-content h2 {
+.liked-users-modal-content h2 {
   margin: 0;
   width: 100%;
-  text-align: center; /* Ensure text is centered */
+  text-align: center; 
 }
 
-.modal-content ul {
-  margin-top: 20px; /* Add margin to separate from h2 */
+.liked-users-modal-content ul {
+  margin-top: 20px; 
   padding-inline-start: 0;
   list-style: none;
   width: 100%;
-  text-align: center; /* Ensure text is centered */
+  text-align: center; 
 }
 
-.close {
+.liked-users-modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -49,21 +50,7 @@
   color: red;
 }
 
-.close:hover {
+.liked-users-modal-close:hover {
   color: darkred;
 }
 
-.CustomPostCard .comments-button {
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
-  font-size: inherit;
-  margin-top: 10px; /* Optional: Add margin to separate from other elements */
-}
-
-.no-scroll {
-  overflow: hidden;
-}

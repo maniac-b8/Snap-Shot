@@ -1,0 +1,94 @@
+.comments-modal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: 75%;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-radius: 5%;
+  border: 3px solid white;
+}
+
+.comments-modal-content {
+  background-color: transparent;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+ 
+  max-width: 600px;
+}
+
+.comments-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.comments-modal-close:hover,
+.comments-modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-item {
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.comment-textarea {
+  resize: vertical;
+  min-height: 100px; 
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comment-submit-button {
+  align-self: center; 
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-submit-button:hover {
+  background-color: #0056b3;
+}
+
+.CustomPostCard .comments-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
+  margin-top: 10px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

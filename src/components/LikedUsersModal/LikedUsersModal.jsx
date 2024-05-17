@@ -3,9 +3,9 @@ import './LikedUsersModal.css';
 
 export default function LikedUsersModal({ likedUsers, onClose }) {
     return (
-      <div className="custom-modal"> {/* Change the class name */}
-        <div className="modal-content">
-          <span className="close" onClick={onClose}>&times;</span>
+      <div className="liked-users-modal custom-modal"> 
+        <div className="liked-users-modal-content modal-content">
+          <span className="liked-users-modal-close close" onClick={onClose}>&times;</span>
           <h2>Liked Users</h2>
           <ul>
             {likedUsers.map(user => (
@@ -15,4 +15,4 @@ export default function LikedUsersModal({ likedUsers, onClose }) {
         </div>
       </div>
     );
-  }
+}

@@ -39,6 +39,7 @@ export default function PostsPage() {
     <main>
       <section>
       <div className="posts-page">
+        <h4>Welcome home</h4>
         <h1>All Posts</h1>
         {posts.map(post => (
           <PostCard

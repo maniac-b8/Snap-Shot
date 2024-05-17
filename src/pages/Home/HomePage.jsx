@@ -49,7 +49,9 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <div className="posts-page">
+      <h2>Welcome to Snap Shot!</h2>
+      <h3>please login or sign up above</h3>
       <h1>Recent Posts</h1>
       {recentPosts.map((post) => (
         <PostCard key={post._id} post={post} />

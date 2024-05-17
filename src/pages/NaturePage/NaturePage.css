@@ -28,9 +28,8 @@
 
   .nature-page .post-likes {
     text-align: center;
-    background-color: white;
-    background: linear-gradient(to bottom, white, black); 
-    padding-bottom: 5px;
+    background: linear-gradient(to top, rgb(151, 214, 149), black); 
+    padding-top: 8px;
     border-bottom: 5px solid black; 
     border-left: 5px solid black;
     border-right: 5px solid black;

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css';
+import iconImage from '../../assets/logo.webp';
 
 export default function NavBar({ user, setUser }) {
   const [isHidden, setIsHidden] = useState(false);
   const location = useLocation();
   const isNaturePage = location.pathname === '/nature';
+  const isGamingPage = location.pathname === '/gaming';
   
   function handleLogOut() {
     userService.logOut();
@@ -37,12 +39,16 @@ export default function NavBar({ user, setUser }) {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.querySelector('nav').removeEventListener('mouseenter', handleMouseEnter);
+      const navElement = document.querySelector('nav');
+      if (navElement) {
+        navElement.removeEventListener('mouseenter', handleMouseEnter);
+      }
     };
   }, []);
 
   return (
-      <nav className={`navbar ${isNaturePage ? 'nature-navbar' : ''} ${isHidden ? 'hidden' : ''}`}>
+      <nav className={`navbar ${isNaturePage ? 'nature-navbar' : ''} ${isGamingPage ? 'gaming-navbar' : ''} ${isHidden ? 'hidden' : ''}`}>
+      <img src={iconImage} alt="Logo" className="navbar-icon" />
       <div className="navbar-links">
         {!user && (
           <>

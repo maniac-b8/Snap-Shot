@@ -12,6 +12,7 @@ export default function BottomBar({ onUpload }) {
   const [isHidden, setIsHidden] = useState(false);
   const location = useLocation();
   const isNaturePage = location.pathname === '/nature';
+  const isGamingPage = location.pathname === '/gaming';
 
   const handleToggleModal = () => {
     onUpload(true);
@@ -37,7 +38,10 @@ export default function BottomBar({ onUpload }) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    document.querySelector('.bottom-bar').addEventListener('mouseenter', handleMouseEnter);
+    const bottomBar = document.querySelector('.bottom-bar');
+    if (bottomBar) {
+      bottomBar.addEventListener('mouseenter', handleMouseEnter);
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -49,9 +53,9 @@ export default function BottomBar({ onUpload }) {
   }, []);
 
   return (
-    <div className={`bottom-bar ${isNaturePage ? 'nature-bottombar' : ''} ${isHidden ? 'hidden' : ''}`}>
-      <Link to="/cars" className="navigation-button">
-        <img src={carsIcon} alt="Cars" />
+    <div className={`bottom-bar ${isNaturePage ? 'nature-bottombar' : isGamingPage ? 'gaming-bottombar' : ''} ${isHidden ? 'hidden' : ''}`}>
+      <Link to="/" className="navigation-button">
+        <img src={allPostsIcon} alt="All Posts" />
       </Link>
       <Link to="/nature" className="navigation-button">
         <img src={natureIcon} alt="Nature" />
@@ -62,8 +66,8 @@ export default function BottomBar({ onUpload }) {
       <Link to="/gaming" className="navigation-button">
         <img src={gamingIcon} alt="Gaming" />
       </Link>
-      <Link to="/" className="navigation-button">
-        <img src={allPostsIcon} alt="All Posts" />
+      <Link to="/cars" className="navigation-button">
+        <img src={carsIcon} alt="Cars" />
       </Link>
     </div>
   );

@@ -4,6 +4,7 @@ import * as postsAPI from '../../utilities/posts-service';
 import PostCard from '../../components/PostCard/PostCard';
 import BottomBar from '../../components/BottomBar/BottomBar'; 
 import UploadPostModal from '../../components/UploadPostModal/UploadPostModal'; 
+import './ProfilePage.css'
 
 export default function ProfilePage() {
   const currentUser = getUser();
@@ -22,7 +23,7 @@ export default function ProfilePage() {
       };
       fetchUserPosts(); 
     }
-  }, [currentUser]); 
+  }, []); 
 
   const handleUpload = async (formData) => {
     try {
@@ -46,7 +47,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <main className="ProfilePage">
+    <main className="profile-page">
       <h1>Welcome, {currentUser.name}</h1>
       <section>
         <h2>Your Posts</h2>

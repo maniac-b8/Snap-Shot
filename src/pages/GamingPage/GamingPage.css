@@ -1,0 +1,57 @@
+.gaming-page {
+    background-image: url('../../assets/gamingbg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    min-height: 100vh; 
+    padding: 20px; 
+  }
+  
+  .gaming-page h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  
+  .gaming-page .post-title,
+  .gaming-page .post-category,
+  .gaming-page .post-created-by{
+    color: white;
+    background-color: rgb(112, 111, 111);
+    border-bottom: 3px solid black;
+    text-align: center;
+    border-left: 3px solid rgb(125, 125, 190);
+    border-right: 3px solid rgb(125, 125, 190);
+    }
+
+    .gaming-page .post-created-by {
+        border-top: 3px solid black;
+    }
+  
+
+
+  .gaming-page .post-likes {
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    text-align: center;
+    padding-top: 10px;
+    border-left: 3px solid rgb(125, 125, 190);
+    border-right: 3px solid rgb(125, 125, 190);
+    border-bottom: 5px solid rgb(125, 125, 190)e;
+    background: linear-gradient(to top, rgb(125, 125, 190), black);  
+    padding-bottom: 4px;
+  }
+  
+  .upload-post-modal {
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+  }
+
+  .gaming-page .post-image {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-color: rgb(125, 125, 190);
+  }
+  

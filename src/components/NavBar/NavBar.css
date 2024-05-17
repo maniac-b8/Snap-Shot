@@ -13,14 +13,23 @@
     z-index: 1000;
   }
   
+  .navbar-icon {
+    height: 50px; 
+    margin-right: -90px; 
+  }
+  
   .nature-navbar {
     background-color: rgb(83, 121, 83); 
   }
-
+  
+  .gaming-navbar {
+    background-color: rgb(70, 70, 140); 
+  }
+  
   .navbar.hidden {
     top: -60px; 
   }
-
+  
   .navbar-links {
     display: flex;
     align-items: center;

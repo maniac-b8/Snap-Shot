@@ -1,0 +1,8 @@
+.mainlogin {
+    background-image: url('../../assets/generalbg.jpg');
+}
+
+.mainlogin button {
+    margin-top: 150px;
+    /* quick fix ^^ need to find root cause of conflicting css */
+}

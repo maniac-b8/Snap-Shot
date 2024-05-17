@@ -34,16 +34,16 @@
 .CustomPostCard .post-likes {
   background-color: grey;
   display: flex;
-  justify-content: space-between; /* Space between groups */
+  justify-content: space-between; 
   align-items: center;
   gap: 1vmin;
   height: 5vmin;
 }
 
 .like-counter-container {
-  display: flex; /* Group like and counter */
+  display: flex; 
   align-items: center;
-  gap: 1vmin; /* Space between like/unlike button and counter */
+  gap: 1vmin; 
 }
 
 .CustomPostCard .likes-button {

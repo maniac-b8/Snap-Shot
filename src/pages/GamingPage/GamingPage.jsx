@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import * as postsAPI from "../../utilities/posts-service";
 import PostCard from "../../components/PostCard/PostCard";
 import BottomBar from "../../components/BottomBar/BottomBar"; 
-import UploadPostModal from '../../components/UploadPostModal/UploadPostModal'; 
+import UploadPostModal from '../../components/UploadPostModal/UploadPostModal';
+import './GamingPage.css';
 
 export default function GamingPage() {
   const [gamingPosts, setGamingPosts] = useState([]);
@@ -40,7 +41,7 @@ export default function GamingPage() {
   }
 
   return (
-    <div>
+    <div className="gaming-page">
       <h1>Gaming</h1>
       {gamingPosts.map((post) => (
         <PostCard key={post._id} post={post} onDelete={handleDelete} handleAddComment={handleAddComment} />

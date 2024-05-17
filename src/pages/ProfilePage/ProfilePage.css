@@ -1,23 +1,24 @@
-.cars-page {
-    background-image: url('../../assets/carsbg.jpg');
+.profile-page {
+    background-image: url('../../assets/generalbg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; 
-    min-height: 100vh; 
+    min-height: 900vh; 
+     /* quick fix ^^ need to hunt down root issue */
     padding: 20px; 
   }
   
-  .cars-page h1 {
+  .profile-page h1 {
     color: white;
     text-align: center;
     margin-bottom: 20px;
     margin-top: 40px;
   }
   
-  .cars-page .post-title,
-  .cars-page .post-category,
-  .cars-page .post-created-by{
+  .profile-page .post-title,
+  .profile-page .post-category,
+  .profile-page .post-created-by{
     color: black;
     background-color: rgb(112, 111, 111);
     border-bottom: 3px solid white;
@@ -26,13 +27,13 @@
     border-right: 3px solid white;
     }
 
-    .cars-page .post-created-by {
+    .profile-page .post-created-by {
         border-top: 3px solid white;
     }
   
 
 
-  .cars-page .post-likes {
+  .profile-page .post-likes {
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     background-color: white;
@@ -51,9 +52,10 @@
     color: white;
   }
 
-  .cars-page .post-image {
+  .profile-page .post-image {
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
     border-color: white;
   }
   
+

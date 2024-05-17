@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as commentsAPI from '../../utilities/comments-service';
+import './CommentsModal.css'; 
 
 export default function CommentsModal({ comments, onClose, postId, handleAddComment }) {
   const [commentContent, setCommentContent] = useState('');
@@ -16,11 +17,11 @@ export default function CommentsModal({ comments, onClose, postId, handleAddComm
   };
 
   return (
-    <div className="custom-modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
+    <div className="custom-modal comments-modal">
+      <div className="modal-content comments-modal-content">
+        <span className="close comments-modal-close" onClick={onClose}>&times;</span>
         <h2>Comments</h2>
-        <ul>
+        <ul className="comments-list">
           {comments.map((comment, index) => (
             <li key={comment._id} className="comment-item">
               <strong>{comment.username}:</strong> {comment.content}
@@ -33,8 +34,9 @@ export default function CommentsModal({ comments, onClose, postId, handleAddComm
             value={commentContent}
             onChange={(e) => setCommentContent(e.target.value)}
             placeholder="Add a comment..."
+            className="comment-textarea"
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className="comment-submit-button">Submit</button>
         </form>
       </div>
     </div>

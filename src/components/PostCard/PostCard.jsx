@@ -4,7 +4,6 @@ import { getUser } from "../../utilities/users-service";
 import { useState, useEffect } from "react";
 import LikedUsersModal from "../LikedUsersModal/LikedUsersModal";
 import CommentsModal from "../CommentsModal/CommentsModal";
-
 // Import icon images
 import likeIcon from "../../assets/notliked.png";
 import unlikeIcon from "../../assets/liked.png";
@@ -96,7 +95,7 @@ export default function PostCard({ post, onDelete, handleAddComment }) {
     <article className="CustomPostCard">
        <img src={post.url} alt={post.title} className={`post-image`} />
       <div className="post-created-by">📸 By: {post.createdBy.name}</div>
-      <div className="post-title">{post.title}</div>
+      <div className="post-title"><strong>{post.title}</strong></div>
       <div className="post-category">Category: {post.category}</div> 
       <div className="post-likes">
         <div className="like-container">

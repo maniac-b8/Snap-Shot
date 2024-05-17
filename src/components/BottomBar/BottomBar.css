@@ -1,55 +1,54 @@
 .bottom-bar {
-  background: linear-gradient( to left, rgb(73, 73, 73) 0%,  rgba(51, 51, 51, 0) 155% );
-  color: white;
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  transition: bottom 0.3s ease-in-out;
-  z-index: 1000; 
-}
-
-.bottom-bar.nature-bottombar {
-  background: linear-gradient(
-    to left,
-    rgb(83, 121, 83) 40%,
-    rgba(0, 128, 0, 0) 100%
-  );
-}
-
-
-.bottom-bar.hidden {
-  bottom: -60px; 
-  transition: bottom 0.3s ease-in-out;
-}
-
-.navigation-button,
-.upload-button {
-  background-color: transparent; 
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0;
-}
-
-.navigation-button img,
-.upload-button img {
- 
-  width: 45px; 
-  height: auto;
-  transition: transform 0.2s ease-in-out;
-}
-
-.navigation-button img:hover,
-.upload-button img:hover {
-  transform: scale(1.1); 
-}
-
-.navigation-button:focus,
-.upload-button:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+    background: linear-gradient(to left, rgb(73, 73, 73) 0%, rgba(51, 51, 51, 0) 155%);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 1000; 
+  }
+  
+  .bottom-bar.nature-bottombar {
+    background: linear-gradient(to left, rgb(83, 121, 83) 40%, rgba(0, 128, 0, 0) 100%);
+  }
+  
+  .bottom-bar.gaming-bottombar {
+    background: linear-gradient(to left, rgb(70, 70, 160) 40%, rgba(0, 0, 128, 0) 100%);
+  }
+  
+  .bottom-bar.hidden {
+    bottom: -60px; 
+    transition: bottom 0.3s ease-in-out;
+  }
+  
+  .navigation-button,
+  .upload-button {
+    background-color: transparent; 
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+  }
+  
+  .navigation-button img,
+  .upload-button img {
+    width: 45px; 
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .navigation-button img:hover,
+  .upload-button img:hover {
+    transform: scale(1.1); 
+  }
+  
+  .navigation-button:focus,
+  .upload-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  

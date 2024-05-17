@@ -1,4 +1,4 @@
-/* CSS Custom Properties */
+
 body {
   background-color: black;
 }
@@ -9,9 +9,9 @@ body {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 2vmin;
@@ -77,21 +77,6 @@ form {
   gap: 1.25vmin;
 
 }
-
-label {
-  font-size: 2vmin;
-  display: flex;
-  align-items: center;
-}
-
-input {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border-radius: .5vmin;
-  background-image: none !important; /* prevent lastpass */
-  outline: none;
-}
-
 
 button, a.button {
   margin: 1vmin;
