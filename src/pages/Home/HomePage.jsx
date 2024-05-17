@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 import * as postsAPI from "../../utilities/posts-service";
 import PostCard from "../../components/PostCard/PostCard";
 import { getUser } from "../../utilities/users-service";
+import snapshotLogo from "../../assets/logo.webp";
+import "./HomePage.css";
 
 export default function HomePage() {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -49,8 +51,10 @@ export default function HomePage() {
   }
 
   return (
-    <div className="posts-page">
-      <h2>Welcome to Snap Shot!</h2>
+    <div className="home-page">
+      <h2>
+        Welcome to <img src={snapshotLogo} alt="Snap Shot Logo" className="homepage-logo" /> {/* Image between text parts */}
+      </h2>
       <h3>please login or sign up above</h3>
       <h1>Recent Posts</h1>
       {recentPosts.map((post) => (

@@ -3,13 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css';
 import iconImage from '../../assets/logo.webp';
+import logoutIcon from '../../assets/logout-icon.png'; 
 
 export default function NavBar({ user, setUser }) {
   const [isHidden, setIsHidden] = useState(false);
   const location = useLocation();
   const isNaturePage = location.pathname === '/nature';
   const isGamingPage = location.pathname === '/gaming';
-  
+
   function handleLogOut() {
     userService.logOut();
     setUser(null);
@@ -47,7 +48,7 @@ export default function NavBar({ user, setUser }) {
   }, []);
 
   return (
-      <nav className={`navbar ${isNaturePage ? 'nature-navbar' : ''} ${isGamingPage ? 'gaming-navbar' : ''} ${isHidden ? 'hidden' : ''}`}>
+    <nav className={`navbar ${isNaturePage ? 'nature-navbar' : ''} ${isGamingPage ? 'gaming-navbar' : ''} ${isHidden ? 'hidden' : ''}`}>
       <img src={iconImage} alt="Logo" className="navbar-icon" />
       <div className="navbar-links">
         {!user && (
@@ -69,7 +70,12 @@ export default function NavBar({ user, setUser }) {
             {user.name}
           </Link>
           &nbsp;&nbsp;
-          <button onClick={handleLogOut} className="nav-buttonlogout">Log Out</button>
+          <img 
+            src={logoutIcon} 
+            alt="Log Out" 
+            onClick={handleLogOut} 
+            className="nav-button-logout-image" 
+          />
           &nbsp;&nbsp;
         </div>
       )}
