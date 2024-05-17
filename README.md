@@ -18,7 +18,7 @@ Welcome to Snap Shot. my version of a Picture posting app. Please feel free to s
 # Getting Started
 
 [Click to View Project Planning](https://trello.com/b/sLn21iSR/project-3-snap-shot)
-[Click to start posting to Y!!!](https://snap-shot-2415-f19a4a3f3ec0.herokuapp.com/)
+[Click to start posting on Snap Shot!!!](https://snap-shot-2415-f19a4a3f3ec0.herokuapp.com/)
 
 # Next Steps
 
