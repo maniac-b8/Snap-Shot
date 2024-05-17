@@ -1,5 +1,3 @@
-// uploadpostmodal.jsx
-
 import { useState } from 'react';
 import './UploadPostModal.css';
 
