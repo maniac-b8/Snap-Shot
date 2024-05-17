@@ -17,6 +17,7 @@ export default function UploadPostModal({ onUpload, onClose }) {
   return (
     <div className="upload-post-modal">
       <div className="upload-modal-content">
+        <div className='upload-modal-content-form'>
         <span className="upload-close" onClick={onClose}>&times;</span>
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
         <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Post Title" />
@@ -26,6 +27,7 @@ export default function UploadPostModal({ onUpload, onClose }) {
           <option value="Gaming">Gaming</option>
         </select>
         <button onClick={handleUpload}>Upload</button>
+        </div>
       </div>
     </div>
   );
