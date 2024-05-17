@@ -11,7 +11,7 @@
   height: 75%;
   background-color: rgba(0, 0, 0, 0.95);
   border-radius: 5%;
-  border: 3px solid white;
+  box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
 }
 
 .liked-users-modal-content {

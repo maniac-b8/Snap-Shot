@@ -1,3 +1,5 @@
+// uploadpostmodal.jsx
+
 import { useState } from 'react';
 import './UploadPostModal.css';
 
@@ -15,17 +17,20 @@ export default function UploadPostModal({ onUpload, onClose }) {
   }
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Post Title" />
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="Cars & Trucks">Cars & Trucks</option>
-          <option value="Nature">Nature</option>
-          <option value="Gaming">Gaming</option>
-        </select>
-        <button onClick={handleUpload}>Upload</button>
+    <div className="upload-post-modal">
+      <div className="upload-modal-content">
+        <span className="upload-close" onClick={onClose}>&times;</span>
+        <h2>Upload Post</h2>
+        <form onSubmit={handleUpload}>
+          <input type="file" onChange={(e) => setFile(e.target.files[0])} style={{ marginBottom: '10px' }} />
+          <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Post Title" style={{ marginBottom: '10px' }} />
+          <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ marginBottom: '10px' }}>
+            <option value="Cars & Trucks">Cars & Trucks</option>
+            <option value="Nature">Nature</option>
+            <option value="Gaming">Gaming</option>
+          </select>
+          <button type="submit">Upload</button>
+        </form>
       </div>
     </div>
   );

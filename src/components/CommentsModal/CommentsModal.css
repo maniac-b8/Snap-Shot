@@ -11,16 +11,16 @@
   height: 75%;
   background-color: rgba(0, 0, 0, 0.95);
   border-radius: 5%;
-  border: 3px solid white;
+  box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
 }
 
 .comments-modal-content {
   background-color: transparent;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
   width: 50%;
- 
+  color: white;
   max-width: 600px;
 }
 
